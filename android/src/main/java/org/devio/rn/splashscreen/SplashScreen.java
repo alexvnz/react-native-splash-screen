@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.os.Build;
 
 import java.lang.ref.WeakReference;
+import android.graphics.drawable.AnimationDrawable;
+import android.widget.ImageView;
 
 /**
  * SplashScreen
@@ -31,6 +33,25 @@ public class SplashScreen {
                     mSplashDialog = new Dialog(activity, themeResId);
                     mSplashDialog.setContentView(R.layout.launch_screen);
                     mSplashDialog.setCancelable(false);
+                    final ImageView splashImageView = mSplashDialog.findViewById(R.id.splashImageView);
+                    splashImageView.setBackgroundResource(R.layout.splash);
+                    final AnimationDrawable frameAnimation = (AnimationDrawable)splashImageView.getBackground();
+                    Thread timer= new Thread(){
+                        public void run(){
+                            try{
+                                sleep(7000);
+                            }catch(InterruptedException e){
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+                    timer.start();
+                    splashImageView.post(new Runnable(){
+                        @Override
+                        public void run() {
+                            frameAnimation.start();
+                        }
+                    });
 
                     if (!mSplashDialog.isShowing()) {
                         mSplashDialog.show();

@@ -3,4 +3,13 @@
     <item type="layout" name="launch_screen">
         @layout/launch_screen
     </item>
+    <item type="layout" name="splash">
+        @layout/splash
+    </item>
+    <item type="color" name="primary_dark">
+        @color/primary_dark
+    </item>
+    <item type="id" name="splashImageView">
+        @id/splashImageView
+    </item>
 </resources>
