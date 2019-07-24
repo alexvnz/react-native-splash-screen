@@ -36,10 +36,12 @@ public class SplashScreen {
                     final ImageView splashImageView = mSplashDialog.findViewById(R.id.splashImageView);
                     splashImageView.setBackgroundResource(R.layout.splash);
                     final AnimationDrawable frameAnimation = (AnimationDrawable)splashImageView.getBackground();
+                    frameAnimation.setEnterFadeDuration(500);
+                    frameAnimation.setExitFadeDuration(500);
                     Thread timer= new Thread(){
                         public void run(){
                             try{
-                                sleep(7000);
+                                sleep(1000);
                             }catch(InterruptedException e){
                                 e.printStackTrace();
                             }
