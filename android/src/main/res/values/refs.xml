@@ -12,4 +12,7 @@
     <item type="id" name="splashImageView">
         @id/splashImageView
     </item>
+    <item type="integer" name="fade_duration">
+        @integer/fade_duration
+    </item>
 </resources>

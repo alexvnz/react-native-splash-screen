@@ -7,6 +7,7 @@ import android.os.Build;
 import java.lang.ref.WeakReference;
 import android.graphics.drawable.AnimationDrawable;
 import android.widget.ImageView;
+import android.content.res.Resources;
 
 /**
  * SplashScreen
@@ -36,8 +37,11 @@ public class SplashScreen {
                     final ImageView splashImageView = mSplashDialog.findViewById(R.id.splashImageView);
                     splashImageView.setBackgroundResource(R.layout.splash);
                     final AnimationDrawable frameAnimation = (AnimationDrawable)splashImageView.getBackground();
-                    frameAnimation.setEnterFadeDuration(500);
-                    frameAnimation.setExitFadeDuration(500);
+                    int fade_duration = splashImageView.getResources().getInteger(R.integer.fade_duration);
+                    if (fade_duration > 0) {
+                      frameAnimation.setEnterFadeDuration(fade_duration);
+                      frameAnimation.setExitFadeDuration(fade_duration);
+                    }
                     Thread timer= new Thread(){
                         public void run(){
                             try{
